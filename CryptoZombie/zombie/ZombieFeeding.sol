@@ -29,6 +29,7 @@ contract ZombieFeeding is ZombieFactory {
         zombieToOwner[id] = msg.sender;
         ownerZombieCount[msg.sender]++;
         NewZombie(id, newZombie.name, newZombie.dna);
+        _triggerCooldown(zombie);
     }
 
     function feedOnKitty(uint _zombieId, uint _kittyId){
